@@ -15,7 +15,10 @@ export default function _screen() {
       <Text h1>Home</Text>
 
       {data.map((car, index) => (
-        <Link key={index} href={"/(auth)/(home)/details"}>
+        <Link
+          key={index}
+          href={{ pathname: "/(auth)/(home)/details", params: car }}
+        >
           Details: {car.model}
         </Link>
       ))}
