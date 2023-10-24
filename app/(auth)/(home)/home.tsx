@@ -5,6 +5,8 @@ import { Text } from "@rneui/base";
 import useNavigationExitOnBack from "../../../hooks/useNavigationExitOnBack";
 import { Link } from "expo-router";
 
+import { data } from "../../../mocks/data";
+
 export default function _screen() {
   useNavigationExitOnBack();
 
@@ -12,7 +14,11 @@ export default function _screen() {
     <View style={styles.container}>
       <Text h1>Home</Text>
 
-      <Link href={"/(auth)/(home)/details"}>Details</Link>
+      {data.map((car, index) => (
+        <Link key={index} href={"/(auth)/(home)/details"}>
+          Details: {car.model}
+        </Link>
+      ))}
     </View>
   );
 }
